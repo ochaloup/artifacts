@@ -5,11 +5,11 @@ Pattern: io.narayana.perf.product.*Comparison.*
 Run arguments: -foe -i 1 -wi 4 -f 1 -t 1 -r 30
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",1,1,43.10071357268442,NaN,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",1,1,32.607150651285956,NaN,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",1,1,47.02867642703198,NaN,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",1,1,8.288172742940773,NaN,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",1,1,46.04348823349654,NaN,"ops/s"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",1,1,2419.502421313211,NaN,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",1,1,9077.177129434722,NaN,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",1,1,3982.247826403256,NaN,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",1,1,9.942689822159432,NaN,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",1,1,1981.9078328229316,NaN,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
@@ -17,11 +17,11 @@ Pattern: io.narayana.perf.product.*Comparison.*
 Run arguments: -foe -i 1 -wi 4 -f 1 -t 10 -r 30
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",10,1,48.8921330662273,NaN,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",10,1,60.282232504445695,NaN,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",10,1,411.9851013705161,NaN,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",10,1,244.39445932356918,NaN,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",10,1,411.70103627363966,NaN,"ops/s"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",10,1,2397.5916763803334,NaN,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",10,1,10584.17479804433,NaN,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",10,1,53496.32955709267,NaN,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",10,1,18184.984486418154,NaN,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",10,1,19753.441815782808,NaN,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
@@ -29,11 +29,11 @@ Pattern: io.narayana.perf.product.*Comparison.*
 Run arguments: -foe -i 1 -wi 4 -f 1 -t 50 -r 30
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",50,1,49.328908360558394,NaN,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",50,1,61.42136442622018,NaN,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",50,1,791.460512490218,NaN,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",50,1,1322.1828953769982,NaN,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",50,1,707.1677831591918,NaN,"ops/s"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",50,1,2281.624553848895,NaN,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",50,1,10352.502514379443,NaN,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",50,1,208129.29097760527,NaN,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",50,1,14026.378900222993,NaN,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",50,1,96425.21005648152,NaN,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
@@ -41,11 +41,11 @@ Pattern: io.narayana.perf.product.*Comparison.*
 Run arguments: -foe -i 1 -wi 4 -f 1 -t 100 -r 30
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",100,1,48.84796193529514,NaN,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",100,1,59.410199450902574,NaN,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",100,1,667.4038149424267,NaN,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",100,1,2433.766806630987,NaN,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",100,1,558.1923337628039,NaN,"ops/s"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",100,1,2255.5376077537953,NaN,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",100,1,10653.077066033546,NaN,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",100,1,213175.1572608926,NaN,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",100,1,13971.523385361636,NaN,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",100,1,166708.83257574827,NaN,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
@@ -53,11 +53,11 @@ Pattern: io.narayana.perf.product.*Comparison.*
 Run arguments: -foe -i 1 -wi 4 -f 1 -t 300 -r 30
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",300,1,44.48562229716725,NaN,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",300,1,43.82668860583656,NaN,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",300,1,1566.1105517216351,NaN,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",300,1,2715.1792374885586,NaN,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",300,1,660.2861767229496,NaN,"ops/s"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",300,1,2335.3048911077185,NaN,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",300,1,10262.347052513702,NaN,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",300,1,193435.53483800238,NaN,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",300,1,14645.64133965726,NaN,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",300,1,181084.6508381462,NaN,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
@@ -65,15 +65,15 @@ Pattern: io.narayana.perf.product.*Comparison.*
 Run arguments: -foe -i 1 -wi 4 -f 1 -t 400 -r 30
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",400,1,46.20393749921816,NaN,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",400,1,46.99477904311836,NaN,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",400,1,1791.7105624148799,NaN,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",400,1,3596.5239598368003,NaN,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",400,1,729.6701356414617,NaN,"ops/s"
-Fri  4 Aug 11:43:46 BST 2017
-Platform: Linux stark.eng.hst.ams2.redhat.com 3.10.0-327.36.3.el7.x86_64 #1 SMP Mon Oct 24 16:09:20 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
-Processor: model name	: Intel(R) Xeon(R) CPU           E5620  @ 2.40GHz
-Number of Cores: 16
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",400,1,2293.207440108403,NaN,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",400,1,10084.667572257498,NaN,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",400,1,196479.14041157305,NaN,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",400,1,15193.080876511702,NaN,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",400,1,172688.27557591986,NaN,"ops/s"
+Thu 24 Aug 12:40:53 BST 2017
+Platform: Linux localhost.localdomain 3.10.0-327.36.1.el7.x86_64 #1 SMP Wed Aug 17 03:02:37 EDT 2016 x86_64 x86_64 x86_64 GNU/Linux
+Processor: model name	: Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz
+Number of Cores: 24
 Blog Text
 =========
 In this release we compare ourselves against four other leading open source competitor products with a view to checking that the release remains competitive. Results are produced using JMH (a micro benchmark harness created by the OpenJDK project team available from http://openjdk.java.net/projects/code-tools/jmh/). 
@@ -85,11 +85,11 @@ The benchmark runs a transaction containing two dummy resources.
 We will let the figures speak for themselves, suffice to say that when more and more threads are thrown at the workload we scale better showing that we have excellent control over parallelism. The actual figures are: 
 
 Threads           A           B           C           D    Narayana
-      1          43          32          47           8          46
-     10          48          60         411         244         411
-     50          49          61         791        1322         707
-    100          48          59         667        2433         558
-    300          44          43        1566        2715         660
-    400          46          46        1791        3596         729
+      1        2419        9077        3982           9        1981
+     10        2397       10584       53496       18184       19753
+     50        2281       10352      208129       14026       96425
+    100        2255       10653      213175       13971      166708
+    300        2335       10262      193435       14645      181084
+    400        2293       10084      196479       15193      172688
 
 GENERATED IMAGE FILE TO /home/hudson/workspace/release-narayana-benchmarks-comparison/benchmark.png
