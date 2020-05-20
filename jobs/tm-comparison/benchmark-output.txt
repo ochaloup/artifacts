@@ -1,20 +1,52 @@
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
-Pattern: io.narayana.perf.product.JotmComparison.*
-Run arguments: -t 2400  -r 30 -f 3 -wi 5 -i 5
+Pattern: io.narayana.perf.product.*Comparison.*
+Run arguments: -t 1  -r 30 -f 3 -wi 5 -i 5
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.JotmComparison.test","thrpt",2400,15,5839.277062,225.965876,"ops/s"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",1,15,70.677814,2.856147,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",1,15,186.049543,40.425827,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",1,15,125.878307,69.495849,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",1,15,8.221769,0.035918,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",1,15,238.375598,2.500963,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
-Pattern: io.narayana.perf.product.JotmComparison.*
-Run arguments: -t 3200  -r 30 -f 3 -wi 5 -i 5
+Pattern: io.narayana.perf.product.*Comparison.*
+Run arguments: -t 24  -r 30 -f 3 -wi 5 -i 5
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.JotmComparison.test","thrpt",3200,15,4538.709906,138.337272,"ops/s"
-Wed 20 May 14:00:18 BST 2020
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",24,15,71.363683,4.718243,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",24,15,241.685532,48.164924,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",24,15,926.632379,577.101172,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",24,15,2109.456714,749.593076,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",24,15,643.605567,42.416097,"ops/s"
+JMH Benchmarks Results
+
+Module: ArjunaJTA/jta
+Pattern: io.narayana.perf.product.*Comparison.*
+Run arguments: -t 240  -r 30 -f 3 -wi 5 -i 5
+Run output:
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",240,15,72.890992,1.666552,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",240,15,252.166564,35.082353,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",240,15,3358.612480,1083.975534,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",240,15,9053.643523,172.824335,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",240,15,5051.174864,234.784189,"ops/s"
+JMH Benchmarks Results
+
+Module: ArjunaJTA/jta
+Pattern: io.narayana.perf.product.*Comparison.*
+Run arguments: -t 1600  -r 30 -f 3 -wi 5 -i 5
+Run output:
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
+"io.narayana.perf.product.AtomikosComparison.test","thrpt",1600,15,555.956871,240.056994,"ops/s"
+"io.narayana.perf.product.BitronixComparison.test","thrpt",1600,15,253.006508,56.268481,"ops/s"
+"io.narayana.perf.product.GeronimoComparison.test","thrpt",1600,15,2776.460521,1342.262484,"ops/s"
+"io.narayana.perf.product.JotmComparison.test","thrpt",1600,15,7390.080735,170.771877,"ops/s"
+"io.narayana.perf.product.NarayanaComparison.test","thrpt",1600,15,37833.602366,970.202565,"ops/s"
+Wed 20 May 18:49:51 BST 2020
 Platform: Linux unused 3.10.0-1062.9.1.el7.x86_64 #1 SMP Mon Dec 2 08:31:54 EST 2019 x86_64 x86_64 x86_64 GNU/Linux
 Processor: model name	: Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz
 Number of Cores: 24
@@ -29,8 +61,10 @@ The benchmark runs a transaction containing two dummy resources.
 
 We will let the figures speak for themselves, suffice to say that when more and more threads are thrown at the workload we scale better showing that we have excellent control over parallelism. The actual figures are: 
 
-Threads           A
-   2400        5839
-   3200        4538
+Threads           A           B           C           D    Narayana
+      1          70         186         125           8         238
+     24          71         241         926        2109         643
+    240          72         252        3358        9053        5051
+   1600         555         253        2776        7390       37833
 
 GENERATED IMAGE FILE TO /home/hudson/workspace/btny-pulls-performance/benchmark.png
