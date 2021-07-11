@@ -1,52 +1,48 @@
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
-Pattern: io.narayana.perf.product.*Comparison.*
+Pattern: com.arjuna.ats.jta.xa.performance.*StoreBenchmark.*
 Run arguments: -t 1  -r 30 -f 3 -wi 5 -i 5
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",1,15,37.096504,0.785688,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",1,15,175.603464,37.428028,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",1,15,107.448262,63.748081,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",1,15,8.134044,0.059968,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",1,15,234.575578,3.932037,"ops/s"
+"com.arjuna.ats.jta.xa.performance.HQStoreBenchmark.testHQStore","thrpt",1,15,230.212782,8.860459,"ops/s"
+"com.arjuna.ats.jta.xa.performance.JDBCStoreBenchmark.testJDBCStore","thrpt",1,15,34.657607,1.332676,"ops/s"
+"com.arjuna.ats.jta.xa.performance.ShadowNoFileLockStoreBenchmark.testShadowNoFileLockStore","thrpt",1,15,71.053053,2.259351,"ops/s"
+"com.arjuna.ats.jta.xa.performance.VolatileStoreBenchmark.testVolatileStore","thrpt",1,15,221014.050246,8356.438455,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
-Pattern: io.narayana.perf.product.*Comparison.*
+Pattern: com.arjuna.ats.jta.xa.performance.*StoreBenchmark.*
 Run arguments: -t 24  -r 30 -f 3 -wi 5 -i 5
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",24,15,36.859196,0.888102,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",24,15,233.167084,43.157441,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",24,15,956.736086,579.914706,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",24,15,2065.675661,728.289797,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",24,15,797.966969,46.846804,"ops/s"
+"com.arjuna.ats.jta.xa.performance.HQStoreBenchmark.testHQStore","thrpt",24,15,794.885303,52.023511,"ops/s"
+"com.arjuna.ats.jta.xa.performance.JDBCStoreBenchmark.testJDBCStore","thrpt",24,15,344.560656,28.251634,"ops/s"
+"com.arjuna.ats.jta.xa.performance.ShadowNoFileLockStoreBenchmark.testShadowNoFileLockStore","thrpt",24,15,505.964308,16.752155,"ops/s"
+"com.arjuna.ats.jta.xa.performance.VolatileStoreBenchmark.testVolatileStore","thrpt",24,15,787758.122625,126194.964720,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
-Pattern: io.narayana.perf.product.*Comparison.*
+Pattern: com.arjuna.ats.jta.xa.performance.*StoreBenchmark.*
 Run arguments: -t 240  -r 30 -f 3 -wi 5 -i 5
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",240,15,36.209403,1.335145,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",240,15,257.127598,28.588724,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",240,15,3178.005342,1084.325020,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",240,15,8598.401165,190.559557,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",240,15,13382.410769,682.337422,"ops/s"
+"com.arjuna.ats.jta.xa.performance.HQStoreBenchmark.testHQStore","thrpt",240,15,12417.434225,1957.608851,"ops/s"
+"com.arjuna.ats.jta.xa.performance.JDBCStoreBenchmark.testJDBCStore","thrpt",240,15,414.038853,28.517611,"ops/s"
+"com.arjuna.ats.jta.xa.performance.ShadowNoFileLockStoreBenchmark.testShadowNoFileLockStore","thrpt",240,15,736.087829,22.156159,"ops/s"
+"com.arjuna.ats.jta.xa.performance.VolatileStoreBenchmark.testVolatileStore","thrpt",240,15,1027684.010841,274411.308749,"ops/s"
 JMH Benchmarks Results
 
 Module: ArjunaJTA/jta
-Pattern: io.narayana.perf.product.*Comparison.*
+Pattern: com.arjuna.ats.jta.xa.performance.*StoreBenchmark.*
 Run arguments: -t 1600  -r 30 -f 3 -wi 5 -i 5
 Run output:
 "Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit"
-"io.narayana.perf.product.AtomikosComparison.test","thrpt",1600,15,269.308673,95.822161,"ops/s"
-"io.narayana.perf.product.BitronixComparison.test","thrpt",1600,15,238.285375,34.603614,"ops/s"
-"io.narayana.perf.product.GeronimoComparison.test","thrpt",1600,15,2932.964435,1102.095949,"ops/s"
-"io.narayana.perf.product.JotmComparison.test","thrpt",1600,15,7026.880736,208.765350,"ops/s"
-"io.narayana.perf.product.NarayanaComparison.test","thrpt",1600,15,71329.705977,3273.249345,"ops/s"
-Sun  4 Jul 09:04:17 BST 2021
+"com.arjuna.ats.jta.xa.performance.HQStoreBenchmark.testHQStore","thrpt",1600,15,72766.371677,3602.555946,"ops/s"
+"com.arjuna.ats.jta.xa.performance.JDBCStoreBenchmark.testJDBCStore","thrpt",1600,15,318.152326,39.835827,"ops/s"
+"com.arjuna.ats.jta.xa.performance.ShadowNoFileLockStoreBenchmark.testShadowNoFileLockStore","thrpt",1600,15,772.983732,19.029963,"ops/s"
+"com.arjuna.ats.jta.xa.performance.VolatileStoreBenchmark.testVolatileStore","thrpt",1600,15,1279265.874443,1342620.147249,"ops/s"
+Sun 11 Jul 03:25:32 BST 2021
 Platform: Linux unused 3.10.0-1160.24.1.el7.x86_64 #1 SMP Thu Mar 25 21:21:56 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
 Processor: model name	: Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz
 Number of Cores: 24
@@ -61,10 +57,10 @@ The benchmark runs a transaction containing two dummy resources.
 
 We will let the figures speak for themselves, suffice to say that when more and more threads are thrown at the workload we scale better showing that we have excellent control over parallelism. The actual figures are: 
 
-Threads           A           B           C           D    Narayana
-      1          37         175         107           8         234
-     24          36         233         956        2065         797
-    240          36         257        3178        8598       13382
-   1600         269         238        2932        7026       71329
+Threads           A           B           C           D
+      1         230          34          71      221014
+     24         794         344         505      787758
+    240       12417         414         736     1027684
+   1600       72766         318         772     1279265
 
 GENERATED IMAGE FILE TO /home/hudson/workspace/narayana-performance/benchmark.png
