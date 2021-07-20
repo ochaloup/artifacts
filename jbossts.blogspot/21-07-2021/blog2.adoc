@@ -3,9 +3,9 @@
 
 == Introduction
 
-In my https://jbossts.blogspot.com/2021/07/narayana-lra-update.html[last post] I showed how to run a Long Running Action (LRA) within a single JAX-RS resource method, using quarkus features to build and run the application. I showed how to create and start an LRA coordinator and then generated a basic `hello` application, showing how to modify the application to run within a long running action (by adding dependencies on the `microprofile-lra` and `narayana-lra` artifacts (which provide annotations for controlling LRAs). That post also includes links to the https://download.eclipse.org/microprofile/microprofile-lra-1.0-M1/microprofile-lra-spec.html[the LRA specification] and to the https://download.eclipse.org/microprofile/microprofile-lra-1.0/apidocs/[javadoc for the annotation API].
+In my https://jbossts.blogspot.com/2021/07/narayana-lra-update.html[last post] I showed how to run a Long Running Action (LRA) within a single JAX-RS resource method using quarkus features to build and run the application. I showed how to create and start an LRA coordinator and then generated a basic `hello` application, showing how to modify the application to run with a long running action (by adding dependencies on the `org.eclipse.microprofile.lra:microprofile-lra-api` and `org.jboss.narayana.rts:narayana-lra` artifacts, which together provide annotations for controlling the lifecycle of LRAs). That post also includes links to the https://download.eclipse.org/microprofile/microprofile-lra-1.0-M1/microprofile-lra-spec.html[the LRA specification] and to the https://download.eclipse.org/microprofile/microprofile-lra-1.0/apidocs/[javadoc for the annotation API].
 
-In this follow up post I will indicate how include a second resource in the LRA. To keep things interesting I'll deploy the second resource to another microservice and use quarkus's MicroProfile Rest Client support to implement the remote service invocations. The main difference between this example and the one I developed in the earlier post, apart from the technicalities of using Rest Client, is that we will set the `LRA.end` attribute to `false` in the remote service so that the LRA will remain active when the call returns. In this way the initiating service method has the option of calling other microservices before ending the LRA.
+In this follow up post I will indicate how to include a second resource in the LRA. To keep things interesting I'll deploy the second resource to another microservice and use quarkus's MicroProfile Rest Client support to implement the remote service invocations. The main difference between this example and the one I developed in the earlier post, apart from the technicalities of using Rest Client, is that we will set the https://download.eclipse.org/microprofile/microprofile-lra-1.0/apidocs/org/eclipse/microprofile/lra/annotation/ws/rs/LRA.html#end--[LRA.end] attribute to `false` in the remote service so that the LRA will remain active when the call returns. In this way the initiating service method has the option of calling other microservices before ending the LRA.
 
 == Creating and starting an LRA coordinator
 
@@ -14,9 +14,9 @@ The https://jbossts.blogspot.com/2021/07/narayana-lra-update.html[previous post]
 
 == Generate a project for booking tickets
 
-Since the example will be REST based, include the `resteasy` and `rest-client` extensions:
+Since the example will be REST based, include the `resteasy` and `rest-client` extensions (on line 6 next):
 
-[source,xml]
+[source,xml,numbered]
 ----
 mvn io.quarkus:quarkus-maven-plugin:2.0.1.Final:create \
     -DprojectGroupId=org.acme \
@@ -29,7 +29,7 @@ cd ticket
 
 You will need the `mvn` program to run the plugin (but the generated projects will include the `mvnw` maven wrapper).
 
-Modify the generated `TicketResource.java` source file to add Microprofile LRA support. The changes that you will need for LRA are on lines 26 and 27. Line 26 says that the `bookTicket` method must run with an LRA (if one is not present when the method is invoked then one will be automatically created). Note that we have set the `end` attribute to false to stop the LRA from being automatically closed when the method finishes. By keeping the LRA active when the ticket is booked, the caller can invoke other services in the context of the same LRA. Most services will require the LRA context for tracking updates which typically will be useful for knowing which actions to compensate for if the LRA is later canceled: the context is injected as a JAX-RS method parameter on line 27.
+Modify the generated `TicketResource.java` source file to add Microprofile LRA support. The changes that you will need for LRA are on lines 26 and 27. Line 26 says that the `bookTicket` method must run with an LRA (if one is not present when the method is invoked then one will be automatically created). Note that we have set the `end` attribute to false to stop the LRA from being automatically closed when the method finishes. By keeping the LRA active when the ticket is booked, the caller can invoke other services in the context of the same LRA. Most services will require the LRA context for tracking updates which typically will be useful for knowing which actions to compensate for if the LRA is later cancelled: the context is injected as a JAX-RS method parameter on line 27.
 
 You will also need to include callbacks for when the LRA is later closed or cancelled (the methods are defined on lines 37 and line 46, respectively).
 
@@ -120,8 +120,8 @@ quarkus.http.port=8081
 quarkus.http.test-port=8081
 ----
 
-The excludes are pulled in by the `org.jboss.narayana.rts:narayana-lra` maven dependency. As mentioned in my previous post this step will not be necessary when the pull request for the narayana LRA extension is approved.
-Now build and test the ticket service, making sure that you have already started a coordinator as described in the previous blog (or you can use the shell scripts <<Creating and starting an LRA coordinator,described above>>):
+The excludes are pulled in by the `org.jboss.narayana.rts:narayana-lra` maven dependency. As mentioned in my previous post this step will not be necessary when the pull request for the `io.quarkus:quarkus-narayana-lra` extension is approved.
+Now build and test the ticket service, making sure that you have already started a coordinator as described in the previous blog (or you can use the shell scripts <<Creating and starting an LRA coordinator,linked above>>):
 
 [source,bash]
 ----
@@ -176,7 +176,7 @@ public interface TicketService {
 }
 ----
 
-Let's also create a `TripService` and inject an instance of the `TicketService` into it marking it with the `@RestClient` annotation on line 11. The quarkus rest client support will configure this injected instance such that it will perform remote REST calls to the ticket service (the remote endpoint for the ticket service will be configured below in the `application.properties` file):
+Let's also create a `TripService` and inject an instance of the `TicketService` into it, marking it with the `@RestClient` annotation on line 11. The quarkus rest client support will configure this injected instance such that it will perform remote REST calls to the ticket service (the remote endpoint for the ticket service will be configured below in the `application.properties` file):
 
 [source,java,numbered]
 ----
@@ -205,7 +205,7 @@ public class TripService {
 }
 ----
 
-And now we can inject an instance of this service into the generated TripResource (`src/main/java/org/acme/trip/TripResource.java`) on line 26:
+And now we can inject an instance of this service into the generated TripResource (`src/main/java/org/acme/trip/TripResource.java`) on line 26. I have also annotated the `bookTrip()` method with an LRA annotation so that a new LRA will be started before the method is started (if one wasn't already present) and I have added `@Complete` and `@Compensate` callback methods (these will be called when the LRA closes or cancels, respectively):
 
 [source,java,numbered]
 ----
@@ -274,7 +274,7 @@ For the blog we can skip the tests:
 rm src/test/java/org/acme/trip/*
 ----
 
-Configure the trip service to listen on port `8082` (line 2). Also configure the remote ticket endpoint as required by REST Client (line 5):
+Configure the trip service to listen on port `8082` (line 2). Also configure the remote ticket endpoint as required by the MicroProfile REST Client specification (line 5):
 
 [source,bash,numbered]
 ----
@@ -286,7 +286,7 @@ org.acme.trip.TicketService/mp-rest/url=http://localhost:8081
 org.acme.trip.TicketService/mp-rest/scope=javax.inject.Singleton
 ----
 
-Add dependencies on `microprofile-lra-api` and `narayana-lra` to the pom to include the MicroProfile LRA annotations and the narayana implementation of them so that the LRA context will be propagated during interservice communications:
+Add dependencies on `microprofile-lra-api` and `narayana-lra` to the pom to include the MicroProfile LRA annotations and the narayana implementation of them so that the application can request that the LRA context be propagated during interservice communications:
 
 [source,xml]
 ----
@@ -311,7 +311,7 @@ java -jar target/quarkus-app/quarkus-run.jar &
 ----
 
 Use `curl` to book a trip. The HTTP GET request to the `trips/book` endpoint is handled by the trip service `bookTrip()` method and it then invokes the `ticket` service to book a ticket.
-When the `bookTrip()` method finishes the LRA will be closed (since the default value for the `LRA.end` attribute is `true`).
+When the `bookTrip()` method finishes the LRA will be closed (since the default value for the `LRA.end` attribute is `true`), triggering calls to the service `@Complete` methods of the two services:
 
 [source,bash]
 ----
@@ -325,6 +325,6 @@ TicketResource.completeWork: http://localhost:8080/lra-coordinator/0_ffffc0a8000
 ----
 
 Notice the output shows the bookTrip and bookTicket methods being called and also notice that the `@Complete` methods of both services (`completeWork()`) were called.
-The `id` of the LRA on all calls should be the same value as shown in the example output, this is worthwhile noting since the completion and compensation methods will typically need it to in order to determine which actions it should clean up for or compensate for.
+The `id` of the LRA on all calls should be the same value as shown in the example output, this is worthwhile noting since the completion and compensation methods will typically use it in order to determine which actions it should clean up for or compensate for when the LRA closes or cancels.
 
-If there was a problem booking the ticket then the ticket service would return a JAX-RS status code (`4xx` and `5xx` HTTP codes by default) that triggers the cancellation of the LRA, and this would then cause the `@Compensate` methods of all services involved in the LRA to be invoked.
+Not shown here, but if there was a problem booking the ticket then the ticket service should return a JAX-RS status code (`4xx` and `5xx` HTTP codes by default) that triggers the cancellation of the LRA, and this would then cause the `@Compensate` methods of all services involved in the LRA to be invoked.
