@@ -1,0 +1,18 @@
+These files accompany a https://jbossts.blogspot.com/2021/07/narayana-lra-update.html[blogpost] that shows how to use Long Running Actions.
+
+* *build.sh*
+  +
+  creates a directory called `tmp` for running the demo and then executes the other scripts in this directory
+* *coordinator.sh*
+  +
+  creates and runs an LRA coordinator
+* *hello.sh*
+  +
+  create a rest microservice that returns the string "Hello RESTEasy"
+* *run.sh*
+  +
+  starts the coordinator and hello services
+  +
+  issues a curl request to the hello service
+  +
+  kills coordinator and hello services

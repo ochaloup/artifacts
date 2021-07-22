@@ -1,4 +1,4 @@
-These files accompany a https://jbossts.blogspot.com/2021/07/how-to-use-long-running-actions-between-microservices.html[blogpost] that shows Long Running Actions spanning multiple services.
+These files accompany a https://jbossts.blogspot.com/2021/07/how-to-use-long-running-actions-between.html[blogpost] that shows Long Running Actions spanning multiple services.
 
 * *build.sh*
   +
@@ -19,4 +19,3 @@ These files accompany a https://jbossts.blogspot.com/2021/07/how-to-use-long-run
   issues a curl request to the trip service to book a ticket
   +
   kills coordinator and trip and ticket services
-
