@@ -1,0 +1,52 @@
+= lra-annotation-checker-maven-plugin-test
+
+This is a simple https://narayana.io/lra/[Narayana LRA] participant project
+running in the https://quarkus.io/[Quarkus] runtime.
+The goal is to demonstrate how the LRA annotation checker Maven Plugin
+reports errors during build time.
+
+== How to build and see errors
+
+[source]
+----
+mvn install
+----
+
+The error expected will be
+
+[quote]
+----
+[ERROR] Failed to execute goal io.narayana:maven-plugin-lra-annotations_1.0:1.0.0.Beta1:check (default) on project lra-annotation-checker-maven-plugin-test: LRA annotation errors:
+[ERROR] [[4]]->
+  1: The class annotated with org.eclipse.microprofile.lra.annotation.ws.rs.LRA missing at least one of the annotations Compensate or AfterLRA Class: io.narayana.LRAParticipantResource;
+  2: Multiple annotations of the same type is used. Only one per the class is expected. Multiple annotations 'org.eclipse.microprofile.lra.annotation.Status' in the class 'class io.narayana.LRAParticipantResource' on methods [status, status2].;
+  4: Wrong method signature for non JAX-RS resource method. Signature for annotation 'org.eclipse.microprofile.lra.annotation.Forget' in the class 'io.narayana.LRAParticipantResource' on method 'forget'. It should be 'public void/CompletionStage/ParticipantStatus forget(java.net.URI lraId, java.net.URI parentId)';
+  5: Wrong complementary annotation of JAX-RS resource method. Method 'complete' of class 'class io.narayana.LRAParticipantResource' annotated with 'org.eclipse.microprofile.lra.annotation.Complete' misses complementary annotation javax.ws.rs.PUT.
+----
+
+The error says that the plugin found 4 errors around LRA annotations.
+The number before colon (`:`) defines
+https://github.com/jbosstm/incubator/blob/lra-annotation-checker-1.0.0.Beta1/lra-annotation-checker/src/main/java/io/narayana/lra/checker/failures/ErrorCode.java[an error code]
+and the description says what's wrong and what should be fixed.
+
+=== How to fix errors
+
+You need to check the `LRAParticipantRecord` class at
+link:src/main/java/io/narayana/LRAParticipantResource.java[src/main/java/io/narayana/LRAParticipantResource]
+and follow the instructions in comments in the class.
+
+== How to run
+
+When the reported errors are fixed (no errors reported)
+then the project can be run as a Quarkus standalone
+project and it can be used as a participant of a LRA coordinator.
+
+[source,bash]
+----
+java -jar target/quarkus-app/quarkus-run.jar
+curl -i localhost:8080/participant
+----
+
+That the LRA processing works is tested within the smoke test
+which is part of the repository.
+
